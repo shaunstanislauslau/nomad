@@ -6797,6 +6797,7 @@ func TestTaskDiff(t *testing.T) {
 					Env:          true,
 					ChangeMode:   "signal",
 					ChangeSignal: "SIGUSR1",
+					EntityAlias:  "",
 				},
 			},
 			New: &Task{
@@ -6806,6 +6807,7 @@ func TestTaskDiff(t *testing.T) {
 					Env:          true,
 					ChangeMode:   "signal",
 					ChangeSignal: "SIGUSR1",
+					EntityAlias:  "",
 				},
 			},
 			Expected: &TaskDiff{
@@ -6826,6 +6828,12 @@ func TestTaskDiff(t *testing.T) {
 								Name: "ChangeSignal",
 								Old:  "SIGUSR1",
 								New:  "SIGUSR1",
+							},
+							{
+								Type: DiffTypeNone,
+								Name: "EntityAlias",
+								Old:  "",
+								New:  "",
 							},
 							{
 								Type: DiffTypeNone,
